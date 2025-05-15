@@ -27,45 +27,54 @@ export default function Home() {
     flexDirection: "column",
   };
 
-  function FirstRow() {
+  function FinanceRow() {
     return (
       <div style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
+        <MainFinances />
+        <PatrimonyCell />
+      </div>
+    );
+  }
+
+  function MainFinances() {
+    return (
+      <div
+        style={{
+          flex: 2,
+          ...cellCSS,
+        }}
+      >
+        <h2>Finanze</h2>
+        <p>Money</p>
+        <p>dots</p>
         <div
           style={{
-            flex: 2,
-            ...cellCSS,
+            display: "flex",
+            gap: "10px",
+            justifyContent: "space-evenly",
           }}
         >
-          <h2>Finanze</h2>
-          <p>Money</p>
-          <p>dots</p>
-          <div
-            style={{
-              display: "flex",
-              gap: "10px",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <p>add</p>
-            <p>rem</p>
-            <p>send?</p>
-          </div>
-        </div>
-        <div
-          style={{
-            flex: 1,
-            ...cellCSS,
-          }}
-        >
-          <h2>Spese mensili</h2>
-          <p>graph</p>
-          <p>money used</p>
+          <p>add</p>
+          <p>rem</p>
+          <p>send?</p>
         </div>
       </div>
     );
   }
 
-  function SecondRow() {
+  function PatrimonyCell() {
+    return (
+      <div style={{ flex: 1, ...cellCSS }}>
+        <h2>Patrimonio</h2>
+        <p>riga 1</p>
+        <p>riga 2</p>
+        <p>riga 3</p>
+        <p>more</p>
+      </div>
+    );
+  }
+
+  function HistoryCell() {
     return (
       <div style={cellCSS}>
         <h2>Storio</h2>
@@ -77,24 +86,38 @@ export default function Home() {
     );
   }
 
-  function ThirdRow() {
+  function ExpensesRow() {
     return (
       <div style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
-        <div style={{ flex: 1, ...cellCSS }}>
-          <h2>pagamenti programmati</h2>
-          <p>riga 1</p>
-          <p>riga 2</p>
-          <p>riga 3</p>
-          <p>more</p>
-        </div>
+        <ScheduledExpences />
+        <MontlyExpenceCell />
+      </div>
+    );
+  }
 
-        <div style={{ flex: 1, ...cellCSS }}>
-          <h2>Patrimonio</h2>
-          <p>riga 1</p>
-          <p>riga 2</p>
-          <p>riga 3</p>
-          <p>more</p>
-        </div>
+  function ScheduledExpences() {
+    return (
+      <div style={{ flex: 1, ...cellCSS }}>
+        <h2>pagamenti programmati</h2>
+        <p>riga 1</p>
+        <p>riga 2</p>
+        <p>riga 3</p>
+        <p>more</p>
+      </div>
+    );
+  }
+
+  function MontlyExpenceCell() {
+    return (
+      <div
+        style={{
+          flex: 1,
+          ...cellCSS,
+        }}
+      >
+        <h2>Spese mensili</h2>
+        <p>graph</p>
+        <p>money used</p>
       </div>
     );
   }
@@ -104,9 +127,9 @@ export default function Home() {
       <div style={bodyCSS}>
         <Header />
         <div style={contentCSS}>
-          <FirstRow />
-          <SecondRow />
-          <ThirdRow />
+          <FinanceRow />
+          <HistoryCell />
+          <ExpensesRow />
         </div>
         <Footer />
       </div>
