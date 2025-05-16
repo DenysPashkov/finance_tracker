@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { cellCSS } from "./cellsCSS";
 
-export function MainFinances() {
+export function MainFinances({
+  data,
+}: {
+  data: { name: string; value: number }[];
+}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const finances = [20, 53.2, 40000];
 
   const handlePrev = () => {
     setSelectedIndex((prev) => {
@@ -16,7 +19,7 @@ export function MainFinances() {
 
   const handleNext = () => {
     setSelectedIndex((prev) => {
-      if (prev == finances.length - 1) {
+      if (prev == data.length - 1) {
         return prev;
       }
       return prev + 1;
@@ -48,7 +51,8 @@ export function MainFinances() {
         ...cellCSS,
       }}
     >
-      <h2>Finanze</h2>
+      <h2 style={{ textAlign: "center" }}>Finanze</h2>
+      <h4> {data.length > 0 ? data[selectedIndex].name : ""}</h4>
       <div
         style={{
           display: "flex",
@@ -78,7 +82,7 @@ export function MainFinances() {
               "green" /* TODO: Manage the possibility to have a negative finance and change the color of the Text here */,
           }}
         >
-          {finances[selectedIndex]} $
+          {data.length > 0 ? data[selectedIndex].value : 0} $
         </h1>
 
         <button
@@ -98,13 +102,11 @@ export function MainFinances() {
       </div>
 
       <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
-        {finances.map((_, idx) => {
+        {data.map((_, idx) => {
           return <Dot index={idx} />;
         })}
       </div>
 
-      <p>dots</p>
-      {/*TODO: Add dots in the future once we will have multiple finances <p>dots</p> */}
       <div
         style={{
           display: "flex",

@@ -1,3 +1,10 @@
+import {
+  GoogleLogin,
+  GoogleOAuthProvider,
+  useGoogleLogin,
+} from "@react-oauth/google";
+import { useEffect } from "react";
+
 export function Header() {
   return (
     <header
@@ -14,6 +21,14 @@ export function Header() {
         <p>home</p>
         <p>history</p>
         <p>light-dark-Mode</p>
+        <GoogleLogin
+          onSuccess={(credentialResponse) => {
+            console.log("@@@@@", credentialResponse);
+          }}
+          onError={() => {
+            console.log("@@@@@@@@ Login Failed");
+          }}
+        />
       </div>
     </header>
   );

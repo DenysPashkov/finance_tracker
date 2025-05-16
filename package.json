@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "firebase": "^11.7.3",
+    "@react-oauth/google": "^0.12.2",
+    "firebase": "^11.7.1",
     "react": "^19.1.0",
     "react-charts": "^3.0.0-beta.57",
     "react-dom": "^19.1.0",

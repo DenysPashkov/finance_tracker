@@ -1,14 +1,24 @@
 import { CellContent } from "../CellContent";
 import { cellCSS } from "./cellsCSS";
 
-export function PatrimonyCell() {
+export function PatrimonyCell({
+  data,
+}: {
+  data: { name: string; value: number }[];
+}) {
   return (
     <div style={{ flex: 2, ...cellCSS }}>
       <h2>Patrimonio</h2>
       <CellContent>
-        <PatrimonyRow title="Liquidi" value={20} />
-        <PatrimonyRow title="Investimenti" value={-20} />
-        <PatrimonyRow title="Salvadanaio" value={20} />
+        {data.map((data) => {
+          return (
+            <PatrimonyRow
+              key={data.name}
+              title={data.name}
+              value={data.value}
+            />
+          );
+        })}
       </CellContent>
     </div>
   );
