@@ -1,5 +1,4 @@
 import { CellContent } from "../CellContent";
-import { ShowMoreRow } from "../ShowMoreRow";
 import { cellCSS } from "./cellsCSS";
 
 export function PatrimonyCell() {
@@ -9,8 +8,7 @@ export function PatrimonyCell() {
       <CellContent>
         <PatrimonyRow title="Liquidi" value={20} />
         <PatrimonyRow title="Investimenti" value={-20} />
-        <PatrimonyRow title="Criptovalute" value={20} />
-        <ShowMoreRow />
+        <PatrimonyRow title="Salvadanaio" value={20} />
       </CellContent>
     </div>
   );
